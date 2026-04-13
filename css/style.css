@@ -988,3 +988,12 @@ section:nth-child(even) {
 .article-hero figcaption, .article-img figcaption { font-size: 0.88rem; color: var(--text-light); text-align: center; margin-top: 8px; font-style: italic; }
 .pillar-content h3 { font-size: 1.35rem; color: var(--primary-dark); margin: 22px 0 10px; }
 .pillar-content h4 { font-size: 1.1rem; color: var(--primary); margin: 16px 0 8px; }
+
+/* Related articles block */
+.related-articles { margin: 48px 0 24px; padding: 28px; background: #f7fafc; border-radius: 12px; border-left: 4px solid var(--primary); }
+.related-articles h2 { margin: 0 0 18px; font-size: 1.5rem; color: var(--primary-dark); }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.related-card { display: block; padding: 18px; background: #fff; border-radius: 8px; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+.related-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+.related-card .related-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); font-weight: 600; margin-bottom: 6px; }
+.related-card h3 { margin: 0; font-size: 1rem; line-height: 1.35; color: var(--primary-dark); }
