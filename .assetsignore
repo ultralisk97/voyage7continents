@@ -1,0 +1,9 @@
+.git
+.git/**
+*.py
+*.log
+*.md
+.gitignore
+.assetsignore
+wrangler.jsonc
+wrangler.toml
