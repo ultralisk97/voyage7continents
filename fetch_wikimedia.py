@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""Download high-quality specific images from Wikimedia Commons for each article.
+Queries the Commons API for each keyword, picks the first File:... result, fetches an 800px thumb.
+"""
+import json
+import os
+import re
+import sys
+import time
+import urllib.parse
+import urllib.request
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(ROOT, "img", "articles")
+os.makedirs(OUT, exist_ok=True)
+
+UA = "voyage7continents-bot/1.0 (https://voyage7continents.fr; contact@voyage7continents.fr)"
+
+# 5 specific queries per article. Queries are tuned to yield real photos, not maps/coats-of-arms.
+SPEC = {
+    "vermont": [
+        "Vermont autumn foliage landscape",
+        "Vermont covered bridge",
+        "Maple syrup sugar shack Vermont",
+        "Green Mountains Vermont",
+        "Vermont village church steeple fall",
+    ],
+    "maine": [
+        "Portland Head Light Maine",
+        "Acadia National Park Maine",
+        "Maine lobster boat",
+        "Bar Harbor Maine coast",
+        "Maine lighthouse coast",
+    ],
+    "preparer-usa": [
+        "New York City skyline Manhattan",
+        "US passport travel document",
+        "Grand Canyon landscape Arizona",
+        "American airlines plane airport",
+        "Statue of Liberty New York",
+    ],
+    "valise-usa": [
+        "Open suitcase packed clothes",
+        "Travel backpack airport",
+        "Passport boarding pass",
+        "Travel toiletries bag",
+        "Airport terminal traveler",
+    ],
+    "shopping-usa": [
+        "Fifth Avenue shopping New York",
+        "American shopping mall",
+        "Outlet shopping center USA",
+        "Times Square shopping",
+        "Nike sneakers store",
+    ],
+    "san-vito": [
+        "San Vito Lo Capo beach",
+        "Riserva dello Zingaro Sicily",
+        "San Vito Lo Capo village Sicily",
+        "Sicilian couscous",
+        "Scopello Sicily tonnara",
+    ],
+    "castiglione": [
+        "Castiglione della Pescaia",
+        "Maremma Tuscany landscape",
+        "Parco della Maremma",
+        "Tuscan medieval village",
+        "Tuscan coast sunset",
+    ],
+    "alicante": [
+        "Castillo de Santa Barbara Alicante",
+        "Explanada Alicante",
+        "Alicante old town Santa Cruz",
+        "Playa del Postiguet Alicante",
+        "Spanish tapas paella",
+    ],
+    "plage-canella": [
+        "Corsica beach turquoise",
+        "Porto-Vecchio Corsica",
+        "Corsica pine trees coast",
+        "Corsica granite rocks sea",
+        "Corsica sunset coast",
+    ],
+    "morro-sao-paulo": [
+        "Morro de Sao Paulo Bahia",
+        "Morro de Sao Paulo beach",
+        "Bahia Brazil lighthouse",
+        "Moqueca Brazilian food",
+        "Brazilian tropical beach palm trees",
+    ],
+}
+
+# Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
+SKIP_RE = re.compile(
+    r"\.(svg|tif|tiff)$"
+    r"|flag|coat.of.arms|map of|location map|logo|seal of"
+    r"|diagram|chart|graph|blank|silhouette",
+    re.IGNORECASE,
+)
+
+def api_get(params):
+    params = {**params, "format": "json"}
+    url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+def search_photo(query):
+    """Search commons for a photo, return File:title of the best match."""
+    data = api_get({
+        "action": "query",
+        "list": "search",
+        "srsearch": query + " filetype:bitmap",
+        "srnamespace": 6,
+        "srlimit": 20,
+    })
+    for hit in data.get("query", {}).get("search", []):
+        title = hit["title"]  # e.g. "File:Foo.jpg"
+        if SKIP_RE.search(title):
+            continue
+        return title
+    return None
+
+def get_thumb_url(title, width=1024):
+    data = api_get({
+        "action": "query",
+        "titles": title,
+        "prop": "imageinfo",
+        "iiprop": "url|mime|size",
+        "iiurlwidth": width,
+    })
+    pages = data.get("query", {}).get("pages", {})
+    for _, page in pages.items():
+        info = page.get("imageinfo", [])
+        if info:
+            mime = info[0].get("mime", "")
+            if mime not in ("image/jpeg", "image/png"):
+                return None
+            return info[0].get("thumburl") or info[0].get("url")
+    return None
+
+def download(url, dest):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        data = r.read()
+    with open(dest, "wb") as f:
+        f.write(data)
+    return len(data)
+
+def main():
+    # Allow selecting only some slugs
+    only = set(sys.argv[1:]) if len(sys.argv) > 1 else None
+    seen_titles = set()
+    for slug, queries in SPEC.items():
+        if only and slug not in only:
+            continue
+        for i, q in enumerate(queries, 1):
+            dest = os.path.join(OUT, f"{slug}-{i}.jpg")
+            # Try search, avoiding duplicates within site-wide run
+            title = None
+            for attempt in range(5):
+                t = search_photo(q if attempt == 0 else f"{q} photo")
+                if not t:
+                    # Loosen
+                    t = search_photo(q.split()[0] + " photograph")
+                if t and t not in seen_titles:
+                    title = t
+                    seen_titles.add(t)
+                    break
+                # If duplicate, try a slight variation
+                q = q + " landscape"
+            if not title:
+                print(f"MISS {slug}-{i} :: {queries[i-1]}")
+                continue
+            url = get_thumb_url(title, 1024)
+            if not url:
+                print(f"NOURL {slug}-{i} :: {title}")
+                continue
+            try:
+                size = download(url, dest)
+                print(f"OK {slug}-{i}  {size:>7}  {title}")
+            except Exception as e:
+                print(f"ERR {slug}-{i} :: {e}")
+            time.sleep(0.2)
+    print("done")
+
+if __name__ == "__main__":
+    main()

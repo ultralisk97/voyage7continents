@@ -50,7 +50,7 @@ BLOCK_MARKER = "<!-- related-articles -->"
 def build_block(cat, current_slug):
     pool = [x for x in articles_by_cat[cat] if x[0] != current_slug]
     # Show up to 4
-    picks = pool[:4]
+    picks = pool[:3]
     if not picks:
         return ""
     cards = []
