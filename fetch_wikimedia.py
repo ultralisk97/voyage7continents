@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "img", "articles")
 os.makedirs(OUT, exist_ok=True)
 
-UA = "voyage7continents-bot/1.0 (https://voyage7continents.fr; contact@voyage7continents.fr)"
+UA = "voyage7continents/1.0 (https://voyage7continents.fr; contact@voyage7continents.fr) python-urllib/3"
 
 # 5 specific queries per article. Queries are tuned to yield real photos, not maps/coats-of-arms.
 SPEC = {
@@ -88,6 +88,76 @@ SPEC = {
         "Moqueca Brazilian food",
         "Brazilian tropical beach palm trees",
     ],
+    "monnaie-laos": [
+        "Laos kip banknote currency",
+        "Vientiane Laos market",
+        "Luang Prabang Laos temple",
+        "Lao kip money",
+        "Laos Mekong river landscape",
+    ],
+    "vaccins-cambodge-2026": [
+        "Angkor Wat Cambodia temple",
+        "Phnom Penh Cambodia street",
+        "Vaccination syringe vial",
+        "Cambodia countryside rice field",
+        "Tonle Sap Cambodia village",
+    ],
+    "decalage-horaire-ouzbekistan": [
+        "Samarkand Registan Uzbekistan",
+        "Bukhara Uzbekistan minaret",
+        "Khiva old city Uzbekistan",
+        "Tashkent Uzbekistan architecture",
+        "Uzbekistan silk road desert",
+    ],
+    "hanoi-sapa-pas-cher": [
+        "Sapa Vietnam rice terraces",
+        "Hanoi old quarter Vietnam",
+        "Vietnam sleeper train railway",
+        "Sapa H'mong village Vietnam",
+        "Fansipan Sapa mountain Vietnam",
+    ],
+    "temperature-bhoutan-novembre": [
+        "Paro Taktsang Bhutan monastery",
+        "Thimphu Bhutan dzong",
+        "Punakha Dzong Bhutan",
+        "Bhutan Himalayas mountain autumn",
+        "Bhutan traditional house landscape",
+    ],
+    "danger-kirghizistan": [
+        "Song Kol lake Kyrgyzstan yurt",
+        "Bishkek Kyrgyzstan square",
+        "Tian Shan mountains Kyrgyzstan",
+        "Karakol Kyrgyzstan landscape",
+        "Kyrgyz nomad horse",
+    ],
+    "specialites-sri-lanka": [
+        "Sri Lanka rice curry",
+        "Sri Lanka street food hoppers",
+        "Kottu roti Sri Lanka",
+        "Sri Lanka spices market",
+        "Sri Lanka tea plantation",
+    ],
+    "visa-myanmar-arrivee": [
+        "Bagan temples Myanmar",
+        "Shwedagon Pagoda Yangon Myanmar",
+        "Inle Lake Myanmar fisherman",
+        "Mandalay Myanmar U Bein bridge",
+        "Myanmar passport visa stamp",
+    ],
+    "meilleure-periode-mongolie": [
+        "Mongolia steppe yurt landscape",
+        "Gobi desert Mongolia",
+        "Naadam festival Mongolia",
+        "Ulaanbaatar Mongolia monastery",
+        "Mongolia horse nomad",
+    ],
+    "budget-nepal-3-semaines": [
+        "Kathmandu Durbar Square Nepal",
+        "Annapurna trekking Nepal",
+        "Pokhara Nepal lake Phewa",
+        "Everest base camp Nepal",
+        "Bhaktapur Nepal temple",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
@@ -140,12 +210,23 @@ def get_thumb_url(title, width=1024):
     return None
 
 def download(url, dest):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = r.read()
-    with open(dest, "wb") as f:
-        f.write(data)
-    return len(data)
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": UA,
+                "Accept": "image/*,*/*;q=0.8",
+                "Referer": "https://commons.wikimedia.org/",
+            })
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+            with open(dest, "wb") as f:
+                f.write(data)
+            return len(data)
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < 3:
+                time.sleep(15 + attempt * 15)
+                continue
+            raise
 
 def main():
     # Allow selecting only some slugs
@@ -156,6 +237,9 @@ def main():
             continue
         for i, q in enumerate(queries, 1):
             dest = os.path.join(OUT, f"{slug}-{i}.jpg")
+            if os.path.exists(dest) and os.path.getsize(dest) > 20000:
+                print(f"SKIP {slug}-{i}  (exists)")
+                continue
             # Try search, avoiding duplicates within site-wide run
             title = None
             for attempt in range(5):
@@ -181,7 +265,7 @@ def main():
                 print(f"OK {slug}-{i}  {size:>7}  {title}")
             except Exception as e:
                 print(f"ERR {slug}-{i} :: {e}")
-            time.sleep(0.2)
+            time.sleep(3)
     print("done")
 
 if __name__ == "__main__":
