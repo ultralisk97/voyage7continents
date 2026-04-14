@@ -15,20 +15,41 @@ HEAD = """<!DOCTYPE html>
   <meta name="description" content="{desc}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://voyage7continents.fr/antarctique/{slug}.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
   <meta property="og:title" content="{og_title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://voyage7continents.fr/antarctique/{slug}.html">
+  <meta property="og:image" content="https://voyage7continents.fr/img/articles/{slug}-1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{og_title}">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="https://voyage7continents.fr/img/articles/{slug}-1.jpg">
   <link rel="stylesheet" href="/css/style.css">
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "{og_title}",
+    "image": "https://voyage7continents.fr/img/articles/{slug}-1.jpg",
+    "mainEntityOfPage": "https://voyage7continents.fr/antarctique/{slug}.html",
     "description": "{desc}",
-    "author": {{"@type": "Organization", "name": "Voyage 7 Continents"}},
-    "publisher": {{"@type": "Organization", "name": "Voyage 7 Continents"}},
+    "author": {{"@type": "Person", "name": "Claire Moreau", "url": "https://voyage7continents.fr/a-propos.html"}},
+    "publisher": {{"@type": "Organization", "name": "Voyage 7 Continents", "logo": {{"@type": "ImageObject", "url": "https://voyage7continents.fr/img/logo.svg"}}}},
     "datePublished": "2026-04-14",
     "dateModified": "2026-04-14"
+  }}
+  </script>
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://voyage7continents.fr/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Antarctique", "item": "https://voyage7continents.fr/antarctique/"}},
+      {{"@type": "ListItem", "position": 3, "name": "{crumb}", "item": "https://voyage7continents.fr/antarctique/{slug}.html"}}
+    ]
   }}
   </script>
 </head>
@@ -74,6 +95,12 @@ HEAD = """<!DOCTYPE html>
         </ol>
       </nav>
 
+      <div class="article-meta">
+        <span class="meta-author"><img src="/img/authors/claire-moreau.svg" alt="Claire Moreau" width="32" height="32" loading="lazy"> <a href="/a-propos.html">Par Claire Moreau</a></span>
+        <time datetime="2026-04-14">Publié le 14 avril 2026</time>
+        <time class="meta-updated" datetime="2026-04-14">Mis à jour le 14 avril 2026</time>
+      </div>
+
       <figure class="article-hero"><img src="/img/articles/{slug}-1.jpg" alt="{alt1}" loading="lazy" width="800" height="500"><figcaption>{caption1}</figcaption></figure>
 
 {body}
@@ -84,6 +111,20 @@ HEAD = """<!DOCTYPE html>
       </div>
 
       <p>Pour préparer votre expédition, retrouvez notre <a href="/antarctique/">guide complet Antarctique</a> et nos autres articles de la catégorie.</p>
+
+      <!-- author-card -->
+      <aside class="author-card" aria-label="À propos de l'auteur">
+        <div class="author-card-photo">
+          <img src="/img/authors/claire-moreau.svg" alt="Portrait de Claire Moreau, rédactrice voyage" width="110" height="110" loading="lazy">
+        </div>
+        <div class="author-card-body">
+          <span class="author-card-label">À propos de l'auteur</span>
+          <h3><a href="/a-propos.html">Claire Moreau</a></h3>
+          <p class="author-card-role">Fondatrice &amp; rédactrice en chef</p>
+          <p class="author-card-bio">Journaliste voyage depuis 2014, Claire a visité 68 pays sur les 7 continents. Elle fonde Voyage 7 Continents en 2022 pour partager des guides pratiques vérifiés sur le terrain.</p>
+          <a class="author-card-link" href="/a-propos.html">Lire la biographie complète &rsaquo;</a>
+        </div>
+      </aside>
 
     </main>
 
