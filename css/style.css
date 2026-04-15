@@ -782,7 +782,7 @@ section:nth-child(even) {
    ======================================== */
 .content-with-sidebar {
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: minmax(0, 1fr) 280px;
   gap: 40px;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -902,7 +902,7 @@ section:nth-child(even) {
    ======================================== */
 @media (max-width: 968px) {
   .content-with-sidebar {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .sidebar-toc {
@@ -959,11 +959,11 @@ section:nth-child(even) {
   }
 
   .calc-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .result-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .section-header h2 {
@@ -976,7 +976,7 @@ section:nth-child(even) {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1009,7 +1009,7 @@ section:nth-child(even) {
 .related-articles { margin: 48px 0 24px; padding: 28px; background: #f7fafc; border-radius: 12px; border-left: 4px solid var(--primary); }
 .related-articles h2 { margin: 0 0 18px; font-size: 1.5rem; color: var(--primary-dark); }
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 720px) { .related-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .related-grid { grid-template-columns: minmax(0, 1fr); } }
 .related-card { display: block; padding: 18px; background: #fff; border-radius: 8px; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
 .related-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
 .related-card .related-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); font-weight: 600; margin-bottom: 6px; }
@@ -1079,6 +1079,29 @@ img, video, iframe, table {
   max-width: 100%;
   height: auto;
 }
+
+/* 1bis. FIX CSS GRID : éviter le débordement horizontal causé par le
+   min-content sizing des grilles. Sans ça, une <img width="600"> dans
+   une card pousse la grille à 600px quel que soit le viewport. */
+.content-with-sidebar,
+.articles-grid,
+.continents-grid,
+.related-grid,
+.calc-form,
+.result-grid,
+.footer-grid {
+  min-width: 0;
+}
+.content-with-sidebar > *,
+.articles-grid > *,
+.continents-grid > *,
+.related-grid > *,
+.calc-form > *,
+.result-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+/* Remplace toutes les pistes 1fr par minmax(0, 1fr) sur mobile via override */
 
 /* 2. Tablette (≤ 968px) : ajustements de mise en page */
 @media (max-width: 968px) {
@@ -1156,7 +1179,7 @@ img, video, iframe, table {
   .breadcrumb { font-size: 0.82rem; word-break: break-word; }
 
   /* Contenu article */
-  .content-with-sidebar { padding: 24px 14px; grid-template-columns: 1fr; gap: 20px; }
+  .content-with-sidebar { padding: 24px 14px; grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .pillar-content { padding: 0; }
   .pillar-content h2 { font-size: 1.4rem; margin: 30px 0 14px; }
   .pillar-content h3 { font-size: 1.15rem; margin: 20px 0 10px; }
@@ -1183,8 +1206,8 @@ img, video, iframe, table {
   /* Calculator */
   .calculator { padding: 22px 18px; margin: 28px 0; }
   .calculator h3 { font-size: 1.25rem; margin-bottom: 18px; }
-  .calc-form { grid-template-columns: 1fr; gap: 14px; }
-  .result-grid { grid-template-columns: 1fr; }
+  .calc-form { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .result-grid { grid-template-columns: minmax(0, 1fr); }
   .result-total .value { font-size: 1.6rem; }
 
   /* FAQ */
@@ -1194,9 +1217,9 @@ img, video, iframe, table {
 
   /* Grilles continents / articles */
   .container { padding: 0 16px; }
-  .continents-grid { grid-template-columns: 1fr; gap: 20px; }
+  .continents-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .continent-card-img { height: 180px; }
-  .articles-grid { grid-template-columns: 1fr; gap: 18px; }
+  .articles-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .article-card-body { padding: 18px; }
   .article-card-body h3 { font-size: 1.05rem; }
 
@@ -1236,7 +1259,7 @@ img, video, iframe, table {
 
   /* Footer */
   .site-footer { padding: 44px 0 24px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; padding: 0 16px; }
+  .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 0 16px; }
   .footer-col h4 { margin-bottom: 14px; }
   .footer-bottom { margin-top: 28px; padding-top: 20px; }
 
