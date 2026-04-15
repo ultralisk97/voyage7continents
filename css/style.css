@@ -1054,3 +1054,217 @@ section:nth-child(even) {
 
 /* Logo with SVG icon */
 .logo img.logo-icon { width: 36px; height: 36px; }
+
+/* ============================================================
+   MOBILE OVERHAUL — refonte responsive complète
+   Règles d'override : tout ce qui casse sur mobile est corrigé ici.
+   ============================================================ */
+
+/* 1. Safety net : empêche toute barre de scroll horizontale */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3, h4, h5, h6, p, a, li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+img, video, iframe, table {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 2. Tablette (≤ 968px) : ajustements de mise en page */
+@media (max-width: 968px) {
+  .pillar-content { padding: 30px 0; max-width: 100%; }
+  .content-with-sidebar { padding: 30px 18px; gap: 24px; }
+  .hero-pillar { padding: 48px 18px; }
+  .hero-pillar h1 { font-size: 2rem; }
+  .sidebar-toc { max-height: none; padding: 18px 20px; }
+  section { padding: 55px 0; }
+}
+
+/* 3. Mobile (≤ 768px) : refonte header, hero, grilles, typographie */
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+
+  /* Header : hamburger + dropdown scrollable */
+  .header-inner { padding: 0 16px; height: 64px; }
+  .logo { font-size: 1.2rem; }
+  .menu-toggle {
+    display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transform: translateY(-110%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    z-index: 999;
+  }
+  .main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 14px 20px;
+  }
+  .main-nav li { width: 100%; }
+  .main-nav a {
+    display: block;
+    padding: 14px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    min-height: 44px;
+  }
+  .main-nav a.active::after { display: none; }
+
+  /* Hero */
+  .hero { padding: 50px 16px; }
+  .hero h1 { font-size: 1.85rem; line-height: 1.25; }
+  .hero p { font-size: 1rem; }
+  .hero-stats { gap: 18px; margin-top: 28px; }
+  .hero-stat strong { font-size: 1.5rem; }
+  .hero-stat span { font-size: 0.8rem; }
+  .hero-buttons { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-buttons .btn { width: 100%; }
+
+  .hero-pillar { padding: 42px 16px; text-align: left; }
+  .hero-pillar h1 { font-size: 1.65rem; }
+  .hero-pillar .hero-content p { font-size: 0.98rem; }
+  .breadcrumb { font-size: 0.82rem; word-break: break-word; }
+
+  /* Contenu article */
+  .content-with-sidebar { padding: 24px 14px; grid-template-columns: 1fr; gap: 20px; }
+  .pillar-content { padding: 0; }
+  .pillar-content h2 { font-size: 1.4rem; margin: 30px 0 14px; }
+  .pillar-content h3 { font-size: 1.15rem; margin: 20px 0 10px; }
+  .pillar-content h4 { font-size: 1rem; margin: 14px 0 6px; }
+  .pillar-content p { font-size: 1rem; }
+
+  /* Sommaire / TOC */
+  .toc { padding: 18px 20px 18px 18px; margin: 22px 0; }
+  .toc h3 { font-size: 1rem; }
+  .toc ol { padding-left: 20px; }
+  .toc a { font-size: 0.92rem; }
+
+  /* Sidebar TOC : devient statique, plus compacte */
+  .sidebar-toc {
+    position: static;
+    margin-top: 24px;
+    padding: 16px 18px;
+    max-height: none;
+  }
+
+  /* Info-box */
+  .info-box { padding: 16px 18px; margin: 20px 0; }
+
+  /* Calculator */
+  .calculator { padding: 22px 18px; margin: 28px 0; }
+  .calculator h3 { font-size: 1.25rem; margin-bottom: 18px; }
+  .calc-form { grid-template-columns: 1fr; gap: 14px; }
+  .result-grid { grid-template-columns: 1fr; }
+  .result-total .value { font-size: 1.6rem; }
+
+  /* FAQ */
+  .faq-question { padding: 16px 18px; font-size: 0.98rem; min-height: 44px; }
+  .faq-answer { padding: 0 18px; }
+  .faq-item.open .faq-answer { padding: 0 18px 16px; }
+
+  /* Grilles continents / articles */
+  .container { padding: 0 16px; }
+  .continents-grid { grid-template-columns: 1fr; gap: 20px; }
+  .continent-card-img { height: 180px; }
+  .articles-grid { grid-template-columns: 1fr; gap: 18px; }
+  .article-card-body { padding: 18px; }
+  .article-card-body h3 { font-size: 1.05rem; }
+
+  /* Section paddings */
+  section { padding: 45px 0; }
+  .section-header { margin-bottom: 32px; }
+  .section-header h2 { font-size: 1.55rem; }
+  .section-header p { font-size: 0.98rem; }
+
+  /* Figures articles */
+  .article-hero, .article-img { margin: 18px 0; }
+  .article-hero figcaption, .article-img figcaption { font-size: 0.82rem; }
+
+  /* Meta article */
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+  }
+  .article-meta time { font-size: 0.85rem; }
+
+  /* Author card (déjà géré à 640px, on renforce ici) */
+  .author-card { padding: 20px 18px; margin: 36px 0 18px; }
+  .author-card-body h3 { font-size: 1.15rem; }
+  .author-card-bio { font-size: 0.92rem; }
+
+  /* Author hero (page à propos) */
+  .author-hero { padding: 20px 18px; gap: 18px; }
+  .author-hero-photo { width: 140px; height: 140px; }
+
+  /* Related articles */
+  .related-articles { padding: 20px 18px; margin: 36px 0 18px; }
+  .related-articles h2 { font-size: 1.25rem; }
+  .related-grid { gap: 12px; }
+  .related-card { padding: 14px; }
+
+  /* Footer */
+  .site-footer { padding: 44px 0 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; padding: 0 16px; }
+  .footer-col h4 { margin-bottom: 14px; }
+  .footer-bottom { margin-top: 28px; padding-top: 20px; }
+
+  /* Boutons : tap target confortable */
+  .btn { padding: 13px 24px; font-size: 0.98rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+
+  /* Liens inline dans le contenu : contrainte anti-overflow */
+  .pillar-content a { word-break: break-word; }
+}
+
+/* 4. Petits mobiles (≤ 480px) : derniers ajustements */
+@media (max-width: 480px) {
+  html { font-size: 14.5px; }
+  .header-inner { padding: 0 14px; }
+  .logo { font-size: 1.1rem; }
+  .hero { padding: 42px 14px; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero-pillar { padding: 36px 14px; }
+  .hero-pillar h1 { font-size: 1.45rem; }
+  .content-with-sidebar { padding: 20px 12px; }
+  .container { padding: 0 14px; }
+  .pillar-content h2 { font-size: 1.3rem; }
+  .section-header h2 { font-size: 1.4rem; }
+  .toc { padding: 16px 16px 16px 14px; }
+  .toc ol { padding-left: 18px; }
+  .calculator { padding: 18px 14px; }
+  .info-box { padding: 14px 16px; }
+  .author-card { padding: 18px 14px; }
+  .related-articles { padding: 18px 14px; }
+  .article-card-body { padding: 16px; }
+}
