@@ -5,3 +5,7 @@ Thumbs.db
 .vscode/
 .idea/
 node_modules/
+.env
+.env.local
+*.key
+.claude/
