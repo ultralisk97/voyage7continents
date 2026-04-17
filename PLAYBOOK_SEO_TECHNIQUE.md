@@ -46,7 +46,7 @@ Chaque article doit impérativement contenir :
 - [ ] `<title>` unique, ≤ 60 caractères, avec nom du site à la fin (`| Nom du Site`)
 - [ ] `<meta name="description">` unique, 140-160 caractères, avec appel à l'action ou chiffre
 - [ ] `<meta name="robots" content="index, follow">`
-- [ ] `<link rel="canonical" href="https://exemple.fr/categorie/slug.html">`
+- [ ] `<link rel="canonical" href="https://exemple.fr/categorie/slug">` **sans `.html`** (cf. §6.3)
 - [ ] `<link rel="icon" type="image/svg+xml" href="/favicon.svg">` + `<link rel="apple-touch-icon" href="/favicon.svg">`
 - [ ] **Open Graph complet** : `og:title`, `og:description`, `og:type="article"`, `og:url`, **`og:image`** (absolue)
 - [ ] **Twitter Cards** : `twitter:card="summary_large_image"`, `twitter:title`, `twitter:description`, `twitter:image`
@@ -60,7 +60,7 @@ Chaque article doit impérativement contenir :
 - [ ] Minimum 4 `<h2>` par article (correspondant aux sections du sommaire)
 
 ### 2.3 Contenu
-- [ ] **Bloc `article-meta` visible** en haut d'article (sous le sommaire ou juste avant l'image hero) : photo auteur + lien vers `/a-propos.html`, **`<time datetime="...">Publié le ...</time>`** et `<time>Mis à jour le ...</time>`. La date doit être visible pour le lecteur **et** correspondre au `datePublished` du JSON-LD
+- [ ] **Bloc `article-meta` visible** en haut d'article (sous le sommaire ou juste avant l'image hero) : photo auteur + lien vers `/a-propos`, **`<time datetime="...">Publié le ...</time>`** et `<time>Mis à jour le ...</time>`. La date doit être visible pour le lecteur **et** correspondre au `datePublished` du JSON-LD
 - [ ] **Introduction** (lead) d'une phrase répondant directement à la requête
 - [ ] Au moins **2 liens externes d'autorité** par article (sources officielles, avec `target="_blank" rel="noopener nofollow"`)
 - [ ] Au moins **1 lien interne** vers la page pilier de la catégorie
@@ -68,7 +68,7 @@ Chaque article doit impérativement contenir :
 - [ ] Mots-clés en `<strong>` dans le corps (parcimonieux, pas de bourrage)
 - [ ] Bloc **« Le conseil d'expert »** en fin d'article (info-box) — signal E-E-A-T
 - [ ] Bloc **« À retenir »** en milieu d'article (info-box)
-- [ ] **Fiche auteur** (`<aside class="author-card">`) en bas d'article, avant le bloc related : photo, nom, rôle, bio courte, lien vers `/a-propos.html` — signal E-E-A-T majeur
+- [ ] **Fiche auteur** (`<aside class="author-card">`) en bas d'article, avant le bloc related : photo, nom, rôle, bio courte, lien vers `/a-propos` — signal E-E-A-T majeur
 
 ### 2.4 Navigation intra-article
 - [ ] **Fil d'Ariane** (breadcrumb) en haut : `Accueil › Catégorie › Article`
@@ -98,7 +98,7 @@ Règle d'or : **un schema `Organization` existe une seule fois sur le site**, su
 Les sites éditoriaux doivent afficher des auteurs identifiés pour être pris au sérieux par Google (Helpful Content) et par les acheteurs de liens.
 
 - **1 auteur minimum par site**, avec nom réel ou fictif mais crédible
-- **Page `/a-propos.html`** (ou `/auteurs/<slug>.html`) pour chaque auteur, avec :
+- **Page `/a-propos`** (fichier `a-propos.html` — on link sans l'extension, cf. §6.3) ou `/auteurs/<slug>` pour chaque auteur, avec :
   - Photo (portrait, ≥ 400×400 px, format rond en front)
   - Nom complet, rôle, bio longue (parcours, spécialités, formations)
   - Schema `Person` dans un JSON-LD `AboutPage`
@@ -226,6 +226,31 @@ git add -A && git commit -m "..." && git push
 - Limite **25 MiB par asset** (Workers)
 - Auto-déploiement à chaque `git push` sur `main`
 - Logs de build accessibles dans le dashboard Cloudflare (`<project>.production.<id>.build.log`)
+
+### 6.3 URLs sans `.html` — RÈGLE CRITIQUE SEO
+Cloudflare Pages sert les fichiers `.html` aux **deux URLs** `/page.html` et `/page`, mais **redirige** `/page.html` → `/page` en **307**. Conséquence : si les canonicals, liens internes et sitemap contiennent `.html`, Screaming Frog remonte :
+- **Canonicals: Non-Indexable Canonical** (le canonical pointe vers une URL qui redirige)
+- **Canonicals: Canonicalised** (la page crawlée a un canonical vers une autre URL)
+- **Response Codes: Internal Redirection (3xx)** (tous les liens internes redirigent)
+
+**Règle absolue** : les **fichiers** sur disque gardent `.html`, mais **toute URL écrite dans le HTML ou le sitemap** doit être sans `.html`.
+
+| Contexte | ❌ Mauvais | ✅ Bon |
+|---|---|---|
+| Canonical | `href="https://site.fr/afrique/safari.html"` | `href="https://site.fr/afrique/safari"` |
+| Lien interne | `<a href="/asie/japon.html">` | `<a href="/asie/japon">` |
+| Sitemap `<loc>` | `.../japon.html` | `.../japon` |
+| `og:url` / breadcrumb schema | `.../safari.html` | `.../safari` |
+| Page pilier catégorie | `/afrique/` (garder le slash final) | `/afrique/` ✅ |
+| Homepage | `/` | `/` ✅ |
+
+**À faire dans chaque template** : pas d'`.html` dans `<link rel="canonical">`, `og:url`, `twitter:url`, schemas JSON-LD, `<a href="/...">`, ni dans `sitemap.xml`. Le script `generate_sitemap.py` (§5) doit produire les `<loc>` **sans** extension.
+
+**Vérification post-déploiement** :
+- `curl -I https://<site>/page` doit retourner **200** directement (c'est l'URL qui doit être partout)
+- `curl -I https://<site>/page.html` retourne **307** vers `/page` (normal : c'est justement pour ça qu'il faut éviter `.html` dans les URLs)
+- `grep -rE 'href="[^"]*\.html"' *.html` doit ne rien retourner (hors liens externes)
+- `grep '\.html' sitemap.xml` doit ne rien retourner
 
 ---
 
@@ -562,7 +587,7 @@ Sur ce site on utilise Wikimedia par défaut (§4), sinon Google Imagen 4 via `g
 5. [ ] Créer `favicon.svg` + `img/logo.svg` (§3.4)
 6. [ ] Créer `robots.txt` + `generate_sitemap.py` (§3.1, §3.2)
 7. [ ] Créer `mentions-legales.html` + `politique-confidentialite.html`
-8. [ ] Créer **au moins un auteur** : `img/authors/<slug>.svg|jpg` + `a-propos.html` avec schema `Person`/`AboutPage` (§2.7)
+8. [ ] Créer **au moins un auteur** : `img/authors/<slug>.svg|jpg` + fichier `a-propos.html` (lié partout comme `/a-propos`, cf. §6.3) avec schema `Person`/`AboutPage` (§2.7)
 9. [ ] Ajouter sur la homepage : schemas `Organization` + `WebSite` (§2.6)
 10. [ ] Connecter le repo à Cloudflare Pages
 11. [ ] Vérifier le domaine dans Google Search Console
