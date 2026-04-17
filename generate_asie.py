@@ -126,7 +126,7 @@ HEAD = """<!DOCTYPE html>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Voyage 7 Continents. Tous droits réservés.</p>
+      <p>&copy; 2026 Voyage 7 Continents. Tous droits réservés.</p>
     </div>
   </footer>
 
