@@ -333,6 +333,13 @@ SPEC = {
         "Samoa fale beach hut",
         "Lalomanu beach Samoa",
     ],
+    "budget-uruguay-1-semaine": [
+        "Montevideo Uruguay rambla skyline",
+        "Colonia del Sacramento cobblestone street",
+        "Punta del Este hand sculpture beach",
+        "Uruguayan asado parrilla",
+        "Cabo Polonio lighthouse dunes",
+    ],
     "specialites-nouvelle-caledonie": [
         "New Caledonia Noumea market",
         "Bougna kanak food",
