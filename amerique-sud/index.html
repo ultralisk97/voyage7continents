@@ -93,6 +93,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur-amerique-sud">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-amerique-sud">Pourquoi voyager en Amérique du Sud ?</a></li>
           <li><a href="#quand-partir-amerique-sud">Quand partir en Amérique du Sud ?</a></li>
           <li><a href="#budget-amerique-sud">Budget détaillé par pays</a></li>
@@ -102,10 +103,70 @@
           <li><a href="#visa-amerique-sud">Visas et formalités</a></li>
           <li><a href="#sante-amerique-sud">Santé et précautions</a></li>
           <li><a href="#culture-amerique-sud">Culture et traditions</a></li>
-          <li><a href="#calculateur-amerique-sud">Calculateur de budget</a></li>
           <li><a href="#faq-amerique-sud">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur-amerique-sud">Estimez Votre Budget Voyage en Amérique du Sud</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre voyage en Amérique du Sud selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="amerique-sud">
+        <h3>Calculateur de Budget Amérique du Sud</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-as">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-as">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-as">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-as" value="21" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-as">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-as">
+              <option value="economique">Économique (auberges, street food, bus locaux)</option>
+              <option value="moyen" selected>Standard (hôtel 2-3*, restaurants, bus cama)</option>
+              <option value="confort">Confort (hôtel 4*, bons restaurants, vols internes)</option>
+              <option value="luxe">Luxe (hôtel 5*, gastronomie, excursions privées)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Amérique du Sud</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-amerique-sud">Pourquoi Voyager en Amérique du Sud ?</h2>
       <p>L'Amérique du Sud est un continent de démesure. Quatrième plus grande masse terrestre de la planète, elle abrite la plus longue chaîne de montagnes au monde (les Andes, 7 000 km), la plus grande forêt tropicale (l'Amazonie, 5,5 millions de km2), le désert le plus aride (l'Atacama), les chutes d'eau les plus puissantes (Iguazu) et certains des sommets les plus hauts des Amériques. C'est un continent qui ne fait rien à moitié, et chaque voyageur qui s'y aventure en revient profondément marqué.</p>
@@ -241,66 +302,6 @@
       <p>La cuisine sud-américaine connaît une reconnaissance mondiale croissante. Le Pérou est régulièrement classé "meilleure destination culinaire au monde" grâce au ceviche, à la causa limena, au lomo saltado et aux créations des chefs comme Gaston Acurio et Virgilio Martinez. L'Argentine est le paradis de la viande grillée : l'asado dominical est un rituel familial sacré, et les parrillas de Buenos Aires servent des pièces de boeuf d'une qualité exceptionnelle. Le Brésil séduit avec la feijoada (ragoût de haricots noirs), l'acai, les pasteis et les churrascarias (restaurants de grillades à volonté).</p>
       <p>En Colombie, les arepas, le bandeja paisa et les fruits tropicaux inconnus en Europe (lulo, guanabana, pitahaya) ravissent les palais curieux. En Bolivie, les saltenas (empanadas de bouillon) et le pique macho sont des découvertes savoureuses. L'Équateur surprend avec le locro de papa et le cuy (cochon d'Inde grillé, un mets traditionnel andin). Partout, les marchés locaux sont les meilleurs endroits pour goûter la cuisine authentique à prix imbattables.</p>
 
-      <h2 id="calculateur-amerique-sud">Calculateur de Budget Amérique du Sud</h2>
-
-      <div class="calculator" data-continent="amerique-sud">
-        <h3>Calculateur de Budget Amérique du Sud</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-as">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-as">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-as">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-as" value="21" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-as">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-as">
-              <option value="economique">Économique (auberges, street food, bus locaux)</option>
-              <option value="moyen" selected>Standard (hôtel 2-3*, restaurants, bus cama)</option>
-              <option value="confort">Confort (hôtel 4*, bons restaurants, vols internes)</option>
-              <option value="luxe">Luxe (hôtel 5*, gastronomie, excursions privées)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Amérique du Sud</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <h2 id="faq-amerique-sud">Questions Fréquentes sur le Voyage en Amérique du Sud</h2>
 
       <div class="faq-list">
@@ -385,6 +386,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur-amerique-sud">Calculateur</a></li>
         <li><a href="#pourquoi-amerique-sud">Pourquoi l'Amérique du Sud ?</a></li>
         <li><a href="#quand-partir-amerique-sud">Quand partir</a></li>
         <li><a href="#budget-amerique-sud">Budget par pays</a></li>
@@ -394,7 +396,6 @@
         <li><a href="#visa-amerique-sud">Formalités</a></li>
         <li><a href="#sante-amerique-sud">Santé</a></li>
         <li><a href="#culture-amerique-sud">Culture</a></li>
-        <li><a href="#calculateur-amerique-sud">Calculateur</a></li>
         <li><a href="#faq-amerique-sud">FAQ</a></li>
       </ol>
     </aside>

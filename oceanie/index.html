@@ -93,6 +93,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur-oceanie">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-oceanie">Pourquoi voyager en Océanie ?</a></li>
           <li><a href="#quand-partir-oceanie">Quand partir en Océanie ?</a></li>
           <li><a href="#budget-oceanie">Budget détaillé par destination</a></li>
@@ -102,10 +103,70 @@
           <li><a href="#visa-oceanie">Visas et formalités</a></li>
           <li><a href="#sante-oceanie">Santé et sécurité</a></li>
           <li><a href="#culture-oceanie">Culture et traditions</a></li>
-          <li><a href="#calculateur-oceanie">Calculateur de budget</a></li>
           <li><a href="#faq-oceanie">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur-oceanie">Estimez Votre Budget Voyage en Océanie</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre voyage en Océanie selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="oceanie">
+        <h3>Calculateur de Budget Océanie</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-oc">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-oc">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-oc">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-oc" value="21" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-oc">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-oc">
+              <option value="economique">Économique (auberges, camping, van, courses au supermarché)</option>
+              <option value="moyen" selected>Standard (motel/Airbnb, restaurants locaux, location voiture)</option>
+              <option value="confort">Confort (hôtel 4*, bons restaurants, excursions guidées)</option>
+              <option value="luxe">Luxe (resort 5*, gastronomie, survols et expériences premium)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Océanie</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-oceanie">Pourquoi Voyager en Océanie ?</h2>
       <p>L'Océanie est un continent à part, le plus petit et le plus isolé, constitué de l'Australie, de la Nouvelle-Zélande et de milliers d'îles dispersées dans l'immensité du Pacifique. Avec une superficie terrestre de seulement 8,5 millions de km2 (dont 7,7 pour la seule Australie) mais un territoire maritime couvrant un tiers de la surface du globe, l'Océanie est avant tout un monde d'eau, de ciel et d'horizons sans fin.</p>
@@ -250,66 +311,6 @@
       <div class="info-box info">
         <strong>Tourisme responsable en Océanie</strong>
         <p>L'Océanie est en première ligne face au changement climatique : montée des eaux menaçant les atolls, blanchissement des coraux de la Grande Barrière, sécheresses et feux de brousse en Australie. En tant que voyageur, réduisez votre impact en choisissant des opérateurs eco-certifiés, en respectant la faune (distance d'observation, pas de nourrissage), en utilisant de la crème solaire sans oxybenzone (toxique pour les coraux), et en limitant vos déchets plastiques. Privilégiez les activités et hébergements gérés par les communautés autochtones pour un tourisme qui bénéficie directement aux populations locales.</p>
-      </div>
-
-      <h2 id="calculateur-oceanie">Estimez Votre Budget Voyage en Océanie</h2>
-
-      <div class="calculator" data-continent="oceanie">
-        <h3>Calculateur de Budget Océanie</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-oc">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-oc">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-oc">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-oc" value="21" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-oc">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-oc">
-              <option value="economique">Économique (auberges, camping, van, courses au supermarché)</option>
-              <option value="moyen" selected>Standard (motel/Airbnb, restaurants locaux, location voiture)</option>
-              <option value="confort">Confort (hôtel 4*, bons restaurants, excursions guidées)</option>
-              <option value="luxe">Luxe (resort 5*, gastronomie, survols et expériences premium)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Océanie</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <h2 id="faq-oceanie">Questions Fréquentes sur le Voyage en Océanie</h2>
@@ -476,6 +477,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur-oceanie">Calculateur</a></li>
         <li><a href="#pourquoi-oceanie">Pourquoi l'Océanie ?</a></li>
         <li><a href="#quand-partir-oceanie">Quand partir</a></li>
         <li><a href="#budget-oceanie">Budget détaillé</a></li>
@@ -485,7 +487,6 @@
         <li><a href="#visa-oceanie">Visas</a></li>
         <li><a href="#sante-oceanie">Santé</a></li>
         <li><a href="#culture-oceanie">Culture</a></li>
-        <li><a href="#calculateur-oceanie">Calculateur</a></li>
         <li><a href="#faq-oceanie">FAQ</a></li>
       </ol>
     </aside>

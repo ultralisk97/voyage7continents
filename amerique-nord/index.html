@@ -93,6 +93,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-amerique-nord">Pourquoi voyager en Amérique du Nord ?</a></li>
           <li><a href="#quand-partir">Quand partir en Amérique du Nord ?</a></li>
           <li><a href="#budget-amerique-nord">Budget détaillé par pays</a></li>
@@ -102,10 +103,70 @@
           <li><a href="#formalites">Visas et formalités</a></li>
           <li><a href="#securite">Sécurité et santé</a></li>
           <li><a href="#culture">Culture et savoir-vivre</a></li>
-          <li><a href="#calculateur">Calculateur de budget</a></li>
           <li><a href="#faq-amerique-nord">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur">Estimez Votre Budget Voyage en Amérique du Nord</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre road trip USA, Canada ou Mexique selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="amerique-nord">
+        <h3>Calculateur de Budget Amérique du Nord</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-an">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-an">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-an">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-an" value="14" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-an">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-an">
+              <option value="economique">Économique (auberges, street food, transports communs)</option>
+              <option value="moyen" selected>Standard (motel/hôtel 2-3*, restaurants, location voiture)</option>
+              <option value="confort">Confort (hôtel 4*, bons restaurants, SUV de location)</option>
+              <option value="luxe">Luxe (hôtel 5*, gastronomie, véhicule premium)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Amérique du Nord</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-amerique-nord">Pourquoi Voyager en Amérique du Nord ?</h2>
       <p>L'Amérique du Nord est un continent de superlatifs. Troisième plus grand continent du monde, il s'étend de l'Arctique canadien aux plages tropicales du Mexique, offrant une diversité de paysages, de cultures et d'expériences sans équivalent. En un seul voyage, vous pouvez traverser des déserts brûlants, longer des côtes spectaculaires, explorer des métropoles vibrantes et vous perdre dans des forêts millénaires.</p>
@@ -228,66 +289,6 @@
       <p>Au Mexique, la culture est chaleureuse et les relations humaines sont primordiales. Quelques mots d'espagnol seront très appréciés, même dans les zones touristiques anglophones. La cuisine mexicaine est un art de vivre : prenez le temps de découvrir la diversité culinaire au-delà des clichés (tacos, mole, ceviche, tamales, chiles en nogada). Les marchés locaux sont le coeur battant de chaque ville et le meilleur endroit pour s'immerger dans la culture locale.</p>
       <p>Quelques particularités à noter : l'âge légal pour consommer de l'alcool est de 21 ans aux USA (contrôles stricts, pièce d'identité souvent demandée même après 30 ans), 18-19 ans au Canada selon la province, et 18 ans au Mexique. La consommation d'alcool en public est interdite dans la plupart des juridictions américaines. Le système de mesures impérial (miles, Fahrenheit, gallons) nécessite une adaptation : une température de 80°F correspond à 27°C, un mile vaut 1,6 km et un gallon américain fait 3,78 litres.</p>
 
-      <h2 id="calculateur">Estimez Votre Budget Voyage en Amérique du Nord</h2>
-
-      <div class="calculator" data-continent="amerique-nord">
-        <h3>Calculateur de Budget Amérique du Nord</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-an">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-an">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-an">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-an" value="14" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-an">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-an">
-              <option value="economique">Économique (auberges, street food, transports communs)</option>
-              <option value="moyen" selected>Standard (motel/hôtel 2-3*, restaurants, location voiture)</option>
-              <option value="confort">Confort (hôtel 4*, bons restaurants, SUV de location)</option>
-              <option value="luxe">Luxe (hôtel 5*, gastronomie, véhicule premium)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Amérique du Nord</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <h2 id="faq-amerique-nord">Questions Fréquentes sur le Voyage en Amérique du Nord</h2>
 
       <div class="faq-list">
@@ -402,6 +403,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#pourquoi-amerique-nord">Pourquoi l'Amérique du Nord ?</a></li>
         <li><a href="#quand-partir">Quand partir</a></li>
         <li><a href="#budget-amerique-nord">Budget détaillé</a></li>
@@ -411,7 +413,6 @@
         <li><a href="#formalites">Visas</a></li>
         <li><a href="#securite">Sécurité</a></li>
         <li><a href="#culture">Culture</a></li>
-        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#faq-amerique-nord">FAQ</a></li>
       </ol>
     </aside>

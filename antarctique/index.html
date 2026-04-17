@@ -93,6 +93,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-antarctique">Pourquoi voyager en Antarctique ?</a></li>
           <li><a href="#quand-partir">Quand partir en Antarctique ?</a></li>
           <li><a href="#budget-antarctique">Budget : combien coûte un voyage ?</a></li>
@@ -102,10 +103,70 @@
           <li><a href="#faune">La faune antarctique</a></li>
           <li><a href="#environnement">Responsabilité environnementale</a></li>
           <li><a href="#preparation">Santé et préparation</a></li>
-          <li><a href="#calculateur">Calculateur de budget</a></li>
           <li><a href="#faq-antarctique">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur">Estimez Votre Budget Voyage en Antarctique</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre croisière expédition en Antarctique selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="antarctique">
+        <h3>Calculateur de Budget Antarctique</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-ant">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-ant">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-ant">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-ant" value="12" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-ant">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-ant">
+              <option value="economique">Expédition standard (cabine partagée, navire 150-200 pax)</option>
+              <option value="moyen" selected>Expédition premium (cabine privée, navire 100-150 pax)</option>
+              <option value="confort">Luxe (suite, petit navire, activités incluses)</option>
+              <option value="luxe">Ultra-luxe (fly-cruise, yacht privé, hélicoptère)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Antarctique</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-antarctique">Pourquoi Voyager en Antarctique ?</h2>
       <p>L'Antarctique n'est pas une destination de voyage ordinaire. C'est le continent le plus froid, le plus venteux, le plus sec et le plus isolé de la planète. Aucune population permanente n'y réside, aucune ville n'y a été construite, aucun gouvernement ne le contrôle. Protégé par le Traité sur l'Antarctique signé en 1959, ce territoire de 14 millions de kilomètres carrés est entièrement dédié à la paix et à la science. Et pourtant, chaque année, environ 100 000 visiteurs s'aventurent jusqu'à ses rivages glacés pour vivre une expérience qui transforme profondément ceux qui la vivent.</p>
@@ -242,66 +303,6 @@
       <div class="info-box tip">
         <strong>Liste d'équipement essentiel</strong>
         <p>Sous-vêtements thermiques (2 jeux), polaire épaisse, doudoune, veste imperméable, pantalon imperméable, gants étanches (2 paires), bonnet, cache-cou, lunettes de soleil UV400, crème solaire SPF50+, médicaments mal de mer, jumelles 8x ou 10x, appareil photo avec batteries de rechange (le froid les vide rapidement), sac étanche pour le zodiac, gourde isotherme. La plupart des opérateurs fournissent une liste détaillée à la réservation.</p>
-      </div>
-
-      <h2 id="calculateur">Estimez Votre Budget Voyage en Antarctique</h2>
-
-      <div class="calculator" data-continent="antarctique">
-        <h3>Calculateur de Budget Antarctique</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-ant">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-ant">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-ant">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-ant" value="12" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-ant">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-ant">
-              <option value="economique">Expédition standard (cabine partagée, navire 150-200 pax)</option>
-              <option value="moyen" selected>Expédition premium (cabine privée, navire 100-150 pax)</option>
-              <option value="confort">Luxe (suite, petit navire, activités incluses)</option>
-              <option value="luxe">Ultra-luxe (fly-cruise, yacht privé, hélicoptère)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Antarctique</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <h2 id="faq-antarctique">Questions Fréquentes sur le Voyage en Antarctique</h2>
@@ -458,6 +459,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#pourquoi-antarctique">Pourquoi l'Antarctique ?</a></li>
         <li><a href="#quand-partir">Quand partir</a></li>
         <li><a href="#budget-antarctique">Budget détaillé</a></li>
@@ -467,7 +469,6 @@
         <li><a href="#faune">Faune</a></li>
         <li><a href="#environnement">Environnement</a></li>
         <li><a href="#preparation">Préparation</a></li>
-        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#faq-antarctique">FAQ</a></li>
       </ol>
     </aside>

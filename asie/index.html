@@ -91,6 +91,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur-asie">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-asie">Pourquoi voyager en Asie ?</a></li>
           <li><a href="#quand-partir-asie">Quand partir en Asie ?</a></li>
           <li><a href="#budget-asie">Budget détaillé par région</a></li>
@@ -100,10 +101,70 @@
           <li><a href="#visa-asie">Visas et formalités</a></li>
           <li><a href="#sante-asie">Santé et vaccins</a></li>
           <li><a href="#culture-asie">Culture et traditions</a></li>
-          <li><a href="#calculateur-asie">Calculateur de budget</a></li>
           <li><a href="#faq-asie">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur-asie">Estimez Votre Budget Voyage en Asie</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre voyage en Asie selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="asie">
+        <h3>Calculateur de Budget Asie</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-as">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-as">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-as">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-as" value="21" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-as">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-as">
+              <option value="economique">Économique (guesthouses, street food, bus locaux)</option>
+              <option value="moyen" selected>Standard (hôtel 3*, restaurants locaux, mix transports)</option>
+              <option value="confort">Confort (hôtel 4-5*, bons restaurants, vols internes)</option>
+              <option value="luxe">Luxe (resort 5*, gastronomie, chauffeur privé)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Asie</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-asie">Pourquoi Voyager en Asie ?</h2>
       <p>L'Asie est le plus grand et le plus peuplé des continents, abritant plus de 4,5 milliards d'habitants répartis dans 48 pays. C'est un continent de superlatifs et de contrastes : des mégapoles les plus modernes du monde (Tokyo, Singapour, Séoul) aux villages reculés où le temps semble s'être arrêté, des déserts brûlants du Rajasthan aux forêts tropicales de Bornéo.</p>
@@ -227,66 +288,6 @@
 
       <h3>Gastronomie asiatique</h3>
       <p>La cuisine est un pilier central de la culture asiatique. Chaque pays possède ses spécialités : pad thaï et curry vert en Thaïlande, pho et banh mi au Vietnam, sushi et ramen au Japon, dim sum et canard laqué en Chine, biryani et curry en Inde. Les marchés de nuit (night markets) en Asie du Sud-Est et à Taïwan sont des expériences gastronomiques incontournables et très abordables.</p>
-
-      <h2 id="calculateur-asie">Estimez Votre Budget Voyage en Asie</h2>
-
-      <div class="calculator" data-continent="asie">
-        <h3>Calculateur de Budget Asie</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-as">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-as">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-as">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-as" value="21" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-as">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-as">
-              <option value="economique">Économique (guesthouses, street food, bus locaux)</option>
-              <option value="moyen" selected>Standard (hôtel 3*, restaurants locaux, mix transports)</option>
-              <option value="confort">Confort (hôtel 4-5*, bons restaurants, vols internes)</option>
-              <option value="luxe">Luxe (resort 5*, gastronomie, chauffeur privé)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Asie</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <h2 id="faq-asie">Questions Fréquentes sur le Voyage en Asie</h2>
 
@@ -452,6 +453,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur-asie">Calculateur</a></li>
         <li><a href="#pourquoi-asie">Pourquoi l'Asie ?</a></li>
         <li><a href="#quand-partir-asie">Quand partir</a></li>
         <li><a href="#budget-asie">Budget détaillé</a></li>
@@ -461,7 +463,6 @@
         <li><a href="#visa-asie">Visas</a></li>
         <li><a href="#sante-asie">Santé</a></li>
         <li><a href="#culture-asie">Culture</a></li>
-        <li><a href="#calculateur-asie">Calculateur</a></li>
         <li><a href="#faq-asie">FAQ</a></li>
       </ol>
     </aside>

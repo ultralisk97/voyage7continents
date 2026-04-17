@@ -93,6 +93,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-afrique">Pourquoi voyager en Afrique ?</a></li>
           <li><a href="#quand-partir">Quand partir en Afrique ?</a></li>
           <li><a href="#budget-afrique">Budget détaillé par région</a></li>
@@ -102,10 +103,70 @@
           <li><a href="#formalites">Visas et formalités</a></li>
           <li><a href="#sante">Santé et vaccins</a></li>
           <li><a href="#culture">Culture et savoir-vivre</a></li>
-          <li><a href="#calculateur">Calculateur de budget</a></li>
           <li><a href="#faq-afrique">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur">Estimez Votre Budget Voyage en Afrique</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre safari ou circuit africain selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="afrique">
+        <h3>Calculateur de Budget Afrique</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-af">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-af">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-af">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-af" value="14" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-af">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-af">
+              <option value="economique">Économique (camping, repas locaux, transports communs)</option>
+              <option value="moyen" selected>Standard (lodge mid-range, safari en groupe, mix transports)</option>
+              <option value="confort">Confort (lodge 4*, safari privé, vols internes)</option>
+              <option value="luxe">Luxe (lodge exclusif, safari sur mesure, avion-taxi)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Afrique</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-afrique">Pourquoi Voyager en Afrique ?</h2>
       <p>L'Afrique est le continent qui marque les esprits de manière indélébile. Deuxième plus grand continent au monde avec 54 pays et plus de 1,4 milliard d'habitants, il offre une diversité de paysages, de cultures et d'expériences que l'on ne trouve nulle part ailleurs. Du Sahara immense aux forêts tropicales du Congo, des savanes infinies d'Afrique de l'Est aux vignobles du Cap, chaque région est un univers à part entière.</p>
@@ -261,66 +322,6 @@
       <div class="info-box tip">
         <strong>Conseil culturel</strong>
         <p>Apprenez quelques mots dans la langue locale : « Asante sana » (merci beaucoup en swahili), « Choukrane » (merci en arabe), « Jërëjëf » (merci en wolof). Cet effort est toujours accueilli avec enthousiasme et ouvre des portes que l'argent ne peut pas acheter. L'hospitalité africaine est légendaire, et un voyageur respectueux sera toujours le bienvenu.</p>
-      </div>
-
-      <h2 id="calculateur">Estimez Votre Budget Voyage en Afrique</h2>
-
-      <div class="calculator" data-continent="afrique">
-        <h3>Calculateur de Budget Afrique</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-af">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-af">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-af">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-af" value="14" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-af">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-af">
-              <option value="economique">Économique (camping, repas locaux, transports communs)</option>
-              <option value="moyen" selected>Standard (lodge mid-range, safari en groupe, mix transports)</option>
-              <option value="confort">Confort (lodge 4*, safari privé, vols internes)</option>
-              <option value="luxe">Luxe (lodge exclusif, safari sur mesure, avion-taxi)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Afrique</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <h2 id="faq-afrique">Questions Fréquentes sur le Voyage en Afrique</h2>
@@ -482,6 +483,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#pourquoi-afrique">Pourquoi l'Afrique ?</a></li>
         <li><a href="#quand-partir">Quand partir</a></li>
         <li><a href="#budget-afrique">Budget détaillé</a></li>
@@ -491,7 +493,6 @@
         <li><a href="#formalites">Visas</a></li>
         <li><a href="#sante">Santé et vaccins</a></li>
         <li><a href="#culture">Culture</a></li>
-        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#faq-afrique">FAQ</a></li>
       </ol>
     </aside>

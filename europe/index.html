@@ -91,6 +91,7 @@
       <nav class="toc">
         <h3>Sommaire</h3>
         <ol>
+          <li><a href="#calculateur">Estimez votre budget en 30 secondes</a></li>
           <li><a href="#pourquoi-europe">Pourquoi voyager en Europe ?</a></li>
           <li><a href="#quand-partir">Quand partir en Europe ?</a></li>
           <li><a href="#budget-europe">Budget détaillé par région</a></li>
@@ -100,10 +101,70 @@
           <li><a href="#formalites">Formalités et documents</a></li>
           <li><a href="#securite">Sécurité et santé</a></li>
           <li><a href="#culture">Culture et savoir-vivre</a></li>
-          <li><a href="#calculateur">Calculateur de budget</a></li>
           <li><a href="#faq-europe">FAQ</a></li>
         </ol>
       </nav>
+
+      <h2 id="calculateur">Estimez Votre Budget Voyage en Europe</h2>
+      <p>Avant de plonger dans le guide complet, calculez en 30 secondes le budget réaliste de votre voyage en Europe selon votre durée et votre style de voyage.</p>
+
+      <div class="calculator" data-continent="europe">
+        <h3>Calculateur de Budget Europe</h3>
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="nb-personnes-eu">Nombre de voyageurs</label>
+            <select name="nb-personnes" id="nb-personnes-eu">
+              <option value="1">1 personne</option>
+              <option value="2" selected>2 personnes</option>
+              <option value="3">3 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="5">5 personnes</option>
+              <option value="6">6 personnes</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="duree-eu">Durée du séjour (jours)</label>
+            <input type="number" name="duree" id="duree-eu" value="14" min="1" max="365">
+          </div>
+          <div class="calc-group full-width">
+            <label for="lifestyle-eu">Style de voyage</label>
+            <select name="lifestyle" id="lifestyle-eu">
+              <option value="economique">Économique (auberges, street food, transports communs)</option>
+              <option value="moyen" selected>Standard (hôtel 2-3*, restaurants, mix transports)</option>
+              <option value="confort">Confort (hôtel 4*, bons restaurants, location voiture)</option>
+              <option value="luxe">Luxe (hôtel 5*, gastronomie, chauffeur privé)</option>
+            </select>
+          </div>
+          <div class="calc-btn">
+            <button class="btn btn-primary" type="button">Calculer mon budget</button>
+          </div>
+          <div class="calc-results">
+            <h4>Estimation de votre budget Europe</h4>
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="label">Hébergement</div>
+                <div class="value res-hebergement">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Nourriture</div>
+                <div class="value res-nourriture">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Transport</div>
+                <div class="value res-transport">-</div>
+              </div>
+              <div class="result-item">
+                <div class="label">Activités</div>
+                <div class="value res-activites">-</div>
+              </div>
+              <div class="result-total">
+                <div class="label">Budget total estimé</div>
+                <div class="value res-total">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="pourquoi-europe">Pourquoi Voyager en Europe ?</h2>
       <p>L'Europe reste la destination touristique numéro un au monde, et ce n'est pas un hasard. Avec plus de 40 pays répartis sur un territoire relativement compact, le vieux continent offre une diversité culturelle, historique et naturelle sans équivalent. En quelques heures de train ou d'avion, vous passez des fjords norvégiens aux plages de la côte amalfitaine, des pubs irlandais aux tavernes grecques.</p>
@@ -212,66 +273,6 @@
       <p>Les pourboires varient énormément selon les pays. En France, le service est inclus (un arrondi de 5-10% est apprécié mais pas obligatoire). En Allemagne et en Autriche, on arrondit généralement à l'euro supérieur. Au Royaume-Uni, 10-15% sont d'usage au restaurant. En Scandinavie, le pourboire est peu pratiqué.</p>
       <p>Les codes vestimentaires sont généralement décontractés en Europe, mais les lieux de culte (églises, cathédrales, mosquées) exigent souvent des épaules et genoux couverts, particulièrement en Italie et en Grèce. Les restaurants gastronomiques peuvent également avoir un dress code.</p>
 
-      <h2 id="calculateur">Estimez Votre Budget Voyage en Europe</h2>
-
-      <div class="calculator" data-continent="europe">
-        <h3>Calculateur de Budget Europe</h3>
-        <div class="calc-form">
-          <div class="calc-group">
-            <label for="nb-personnes-eu">Nombre de voyageurs</label>
-            <select name="nb-personnes" id="nb-personnes-eu">
-              <option value="1">1 personne</option>
-              <option value="2" selected>2 personnes</option>
-              <option value="3">3 personnes</option>
-              <option value="4">4 personnes</option>
-              <option value="5">5 personnes</option>
-              <option value="6">6 personnes</option>
-            </select>
-          </div>
-          <div class="calc-group">
-            <label for="duree-eu">Durée du séjour (jours)</label>
-            <input type="number" name="duree" id="duree-eu" value="14" min="1" max="365">
-          </div>
-          <div class="calc-group full-width">
-            <label for="lifestyle-eu">Style de voyage</label>
-            <select name="lifestyle" id="lifestyle-eu">
-              <option value="economique">Économique (auberges, street food, transports communs)</option>
-              <option value="moyen" selected>Standard (hôtel 2-3*, restaurants, mix transports)</option>
-              <option value="confort">Confort (hôtel 4*, bons restaurants, location voiture)</option>
-              <option value="luxe">Luxe (hôtel 5*, gastronomie, chauffeur privé)</option>
-            </select>
-          </div>
-          <div class="calc-btn">
-            <button class="btn btn-primary" type="button">Calculer mon budget</button>
-          </div>
-          <div class="calc-results">
-            <h4>Estimation de votre budget Europe</h4>
-            <div class="result-grid">
-              <div class="result-item">
-                <div class="label">Hébergement</div>
-                <div class="value res-hebergement">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Nourriture</div>
-                <div class="value res-nourriture">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Transport</div>
-                <div class="value res-transport">-</div>
-              </div>
-              <div class="result-item">
-                <div class="label">Activités</div>
-                <div class="value res-activites">-</div>
-              </div>
-              <div class="result-total">
-                <div class="label">Budget total estimé</div>
-                <div class="value res-total">-</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <h2 id="faq-europe">Questions Fréquentes sur le Voyage en Europe</h2>
 
       <div class="faq-list">
@@ -376,6 +377,7 @@
     <aside class="sidebar-toc">
       <h4>Navigation rapide</h4>
       <ol>
+        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#pourquoi-europe">Pourquoi l'Europe ?</a></li>
         <li><a href="#quand-partir">Quand partir</a></li>
         <li><a href="#budget-europe">Budget détaillé</a></li>
@@ -385,7 +387,6 @@
         <li><a href="#formalites">Formalités</a></li>
         <li><a href="#securite">Sécurité</a></li>
         <li><a href="#culture">Culture</a></li>
-        <li><a href="#calculateur">Calculateur</a></li>
         <li><a href="#faq-europe">FAQ</a></li>
       </ol>
     </aside>
