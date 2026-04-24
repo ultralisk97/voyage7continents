@@ -361,6 +361,41 @@ SPEC = {
         "New Zealand power outlet",
         "Electrical socket AU NZ",
     ],
+    "decalage-vancouver": [
+        "Vancouver skyline British Columbia",
+        "World time zone clock",
+        "Vancouver International Airport YVR",
+        "Stanley Park Vancouver sunset",
+        "Canada Place Vancouver harbor",
+    ],
+    "transit-miami": [
+        "Miami International Airport terminal",
+        "Airport immigration passport control",
+        "Miami airport baggage claim",
+        "Miami airport skytrain terminal",
+        "US Customs Border Protection",
+    ],
+    "eau-mexique": [
+        "Bottled water Mexico",
+        "Oxxo store Mexico interior",
+        "Drinking glass ice water",
+        "Mexican market fresh fruit",
+        "Mexican street food tacos",
+    ],
+    "costa-rica": [
+        "Arenal Volcano Costa Rica",
+        "Tortuguero rainforest lodge Costa Rica",
+        "Costa Rica sloth tree",
+        "Manuel Antonio beach Costa Rica",
+        "Monteverde cloud forest Costa Rica",
+    ],
+    "quebec-decembre": [
+        "Chateau Frontenac Quebec winter snow",
+        "Montreal snow street winter",
+        "Quebec winter hiker snowshoe",
+        "Snowmobile trail Canada forest",
+        "Canada Winter Carnival Quebec",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
