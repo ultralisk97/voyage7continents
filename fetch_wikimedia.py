@@ -396,6 +396,13 @@ SPEC = {
         "Snowmobile trail Canada forest",
         "Canada Winter Carnival Quebec",
     ],
+    "ohrid": [
+        "Saint John Kaneo Ohrid lake",
+        "Ohrid old town street",
+        "Church Saint John Kaneo Ohrid cliff",
+        "Saint Naum monastery Ohrid",
+        "Ohrid lake evening boat",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
