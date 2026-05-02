@@ -403,6 +403,19 @@ SPEC = {
         "Saint Naum monastery Ohrid",
         "Ohrid lake evening boat",
     ],
+    "eau-robinet-albanie": [
+        "Tirana Skanderbeg square fountain",
+        "Mineral water bottles supermarket",
+        "Tirana Albania street center",
+        "Hiker drinking water bottle outdoor",
+        "Saranda Albania coast",
+    ],
+    "code-postal-reykjavik": [
+        "Laugavegur Reykjavik street",
+        "Reykjavik colorful houses",
+        "Hallgrimskirkja Reykjavik",
+        "Iceland mailbox post",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
