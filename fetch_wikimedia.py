@@ -416,6 +416,18 @@ SPEC = {
         "Hallgrimskirkja Reykjavik",
         "Iceland mailbox post",
     ],
+    "meilleure-periode-georgie": [
+        "Tbilisi Old Town panoramic view Georgia Caucasus",
+        "Telavi vineyard grapevines Alazani valley",
+        "Sighnaghi Georgia Kakheti town",
+        "Ushguli Svaneti towers Georgia Caucasus",
+    ],
+    "aller-mer-de-ross": [
+        "Ross Ice Shelf Antarctica",
+        "Bluff New Zealand harbour Southland",
+        "Cape Evans Scott hut Antarctica",
+        "Adelie penguin colony Cape Adare Antarctica",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
