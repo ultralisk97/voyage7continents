@@ -499,6 +499,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://voyage7continents.fr/europe/marseille-dangereux-quartiers</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://voyage7continents.fr/europe/ile-arz-ou-ile-aux-moines</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://voyage7continents.fr/amerique-nord/martinique-ou-guadeloupe</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://voyage7continents.fr/mentions-legales</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>yearly</changefreq>
