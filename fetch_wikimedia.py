@@ -443,6 +443,24 @@ SPEC = {
         "Basse-Terre Guadeloupe rainforest Soufriere volcano",
         "Caribbean turquoise lagoon beach Antilles",
     ],
+    "vienne-ou-budapest": [
+        "Budapest Parliament building Danube panorama",
+        "Vienna Schonbrunn Palace gardens",
+        "Vienna State Opera house building",
+        "Budapest Fisherman Bastion Buda Castle",
+    ],
+    "tunisie-ou-turquie": [
+        "Sidi Bou Said Tunisia blue white village",
+        "Cappadocia Turkey hot air balloons sunrise",
+        "Istanbul Hagia Sophia Blue Mosque",
+        "Hammamet Tunisia Mediterranean beach sea",
+    ],
+    "philippines-ou-thailande": [
+        "El Nido Palawan Philippines limestone lagoon",
+        "Bangkok Grand Palace Thailand temple",
+        "Phuket Thailand beach longtail boat",
+        "Chocolate Hills Bohol Philippines",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
@@ -451,7 +469,8 @@ SKIP_RE = re.compile(
     r"|flag|coat.of.arms|map of|location map|logo|seal of"
     r"|diagram|chart|graph|blank|silhouette"
     r"|NGA \d|atget|daguerr|, c\. 1[6789]|1[6789]\d0s|engraving|lithograph|postcard"
-    r"|painting|oil on canvas|Seurat|Monet|Gauguin|Renoir|, 1[6789]\d\d|, 19[0-4]\d",
+    r"|painting|oil on canvas|Seurat|Monet|Gauguin|Renoir|, 1[6789]\d\d|, 19[0-4]\d"
+    r"|gedenktafel|plaque|memorial tablet|mailbox|letterbox|gravestone|tombstone|inscription",
     re.IGNORECASE,
 )
 
