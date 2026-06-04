@@ -428,13 +428,30 @@ SPEC = {
         "Cape Evans Scott hut Antarctica",
         "Adelie penguin colony Cape Adare Antarctica",
     ],
+    "marseille-dangereux-quartiers": [
+        "Marseille Vieux-Port Notre-Dame de la Garde",
+        "Le Panier Marseille colorful street",
+        "Calanque de Sormiou Marseille turquoise",
+    ],
+    "ile-arz-ou-ile-aux-moines": [
+        "Golfe du Morbihan islands aerial sailboats",
+        "Ile aux Moines port Morbihan harbour",
+        "Moulin a maree Berno Ile-d'Arz Morbihan",
+    ],
+    "martinique-ou-guadeloupe": [
+        "Anse des Salines Martinique plage cocotiers",
+        "Basse-Terre Guadeloupe rainforest Soufriere volcano",
+        "Caribbean turquoise lagoon beach Antilles",
+    ],
 }
 
 # Filenames we explicitly want to skip (maps, coats-of-arms, logos, flags, diagrams)
 SKIP_RE = re.compile(
     r"\.(svg|tif|tiff)$"
     r"|flag|coat.of.arms|map of|location map|logo|seal of"
-    r"|diagram|chart|graph|blank|silhouette",
+    r"|diagram|chart|graph|blank|silhouette"
+    r"|NGA \d|atget|daguerr|, c\. 1[6789]|1[6789]\d0s|engraving|lithograph|postcard"
+    r"|painting|oil on canvas|Seurat|Monet|Gauguin|Renoir|, 1[6789]\d\d|, 19[0-4]\d",
     re.IGNORECASE,
 )
 
